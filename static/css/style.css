@@ -1,0 +1,125 @@
+.header {
+    background-color:#353C3E;
+    padding: 30px 0;
+}
+
+.color-link {
+    margin: 30px 0;
+}
+
+.color-link > li {
+    width: 170px;
+    margin: 0 10px;
+}
+
+.color-link > li > a {
+    color:#E66A39;
+    font-weight: bold;
+    border: 1px solid #E66A39;
+    border-radius: 5px;
+    
+}
+
+.color-link > li > a:hover {
+    background-color: #EEEEEE;
+    transition: ease 0.5s;
+}
+
+.logo {
+    color:#D04E33;
+}
+.main-text {
+    color:#1C2021;
+    padding: 30px 0;
+    width: 750px;
+}
+.fotter-text {
+    padding: 25px 0;
+}
+.color-text-footer > li > a {
+    color:#E66A39;
+}
+
+.lessons-all > * {
+    margin: 40px auto;
+   
+}
+
+.lessons-all > ul > li > a {
+    width: 400px;
+    border: 1px solid #7870f3;
+    margin: 5px auto;
+    color: #7870f3;
+    font-weight: bold;
+    
+}
+.lessons-all > ul > li > a:hover {
+    background-color:#7870f3 ;
+    color: #fff;
+    transition: ease 0.3s;
+}
+
+.main-text2 {
+    width: 800px;
+    padding: 15px;
+}
+.pad-text-instr1 {
+    padding: 8px 25px;
+    border: 1px solid #7870f3;
+}
+.main-text3 {
+    width: 750px;
+    padding: 40px 20px;
+    
+}
+
+.main-text3 h2{
+    padding-bottom: 30px;
+    text-align: center;
+}
+
+.flex-class{
+    display: flex;
+    text-align: center;
+    padding-bottom: 40px;
+    
+}
+
+.flex-inner{
+    margin: 0 auto;
+}
+
+.pad-text-instr2 {
+    padding: 25px 5px 10px 0;
+    
+}
+.flex-inner > a:hover {
+    background-color:#7870f3 ;
+    color: #fff;
+    transition: ease 0.3s;
+}
+.foto {
+    box-sizing: border-box;
+    display: inline-block;
+}
+
+.clearfix { clear: both; }
+.author-div{
+    box-sizing: border-box;
+    display: inline-block;
+    
+}
+.infobavtore {
+   padding: 0 20px;
+}
+.table {
+    padding: 3px 3px;w
+}
+
+.border-text {
+    border: 1px solid #D04E33;
+    border-radius: 10px;
+    padding: 15px;
+    background-color: #D04E33;
+    color: #EEEEEE;
+}
