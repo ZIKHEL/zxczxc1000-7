@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
+</head>
+<body>
+    <header class="header">
+        <div class="container text-center" >
+            <img src="{{ url_for('static', filename= '/img/plogo.png') }}" alt="" width="180px"class="rounded" >
+            <h1 class="logo">EasyPython</h1>
+            <ul class="nav justify-content-center color-link">
+                <li class="nav-item">
+                   <a class="nav-link" href="{{ url_for('index') }}">Главная</a>
+                <li class="nav-item">
+                   <a class="nav-link" href="{{ url_for('lessons') }}">Уроки</a>
+                <li class="nav-item">
+                   <a class="nav-link" href="{{ url_for('instrument') }}">Инструментарий</a>
+                <li class="nav-item">
+                   <a class="nav-link" href="{{ url_for('autor') }}">Об авторе</a>
+            </ul>
+        </div>
+    </header>
+    <section>
+        <div class="container main-text">
+            <h2>Урок 5: Строки</h2>
+            <h3>1. Строки</h3>
+            <p>Строка считывается со стандартного ввода функцией <strong>input()</strong>. Напомним, что для двух строк определена операция сложения (конкатенации), также определена операция умножения строки на число.</p>
+            <p>Строка состоит из последовательности символов. Узнать количество символов (длину строки) можно при помощи функции <strong>len</strong>.</p>
+            <p>Любой другой объект в Питоне можно перевести к строке, которая ему соответствует. Для этого нужно вызвать функцию <strong>str()</strong>, передав ей в качестве параметра объект, переводимый в строку.</p>
+            <p class="border-text">На самом деле каждая строка, с точки зрения Питона, — это объект класса <strong>str</strong>. Чтобы получить по объекту другой объект другого класса, как-то ему соответствующий, можно использовать функцию приведения. Имя этой функции совпадает с именем класса,
+                 к которому мы приводим объект. (Для знатоков: эта функция — это конструктор объектов данного класса.)
+                 Пример: <strong>int</strong> — класс для целых чисел. Перевод строки в число осуществляется функцией <strong>int()</strong>.</p>
+            <img src="{{ url_for('static', filename= '/img/lesson5/les5_1.png') }}" alt="" width="650px">
+            <h3>2. Срезы</h3>
+            <p>Срез (slice) — извлечение из данной строки одного символа или некоторого фрагмента подстроки или подпоследовательности.</p>
+            <p>Есть три формы срезов. Самая простая форма среза: взятие одного символа строки, а именно, <strong>S[i]</strong> — это срез, состоящий из одного символа, который имеет номер <strong>i</strong>. 
+                При этом считается, что нумерация начинается с числа 0. То есть если <strong>S = 'Hello', то S[0] == 'H', S[1] == 'e', S[2] == 'l', S[3] == 'l', S[4] == 'o'</strong>.</p>
+            <p class="border-text">Заметим, что в Питоне нет отдельного типа для символов строки. Каждый объект, который получается в результате среза <strong>S[i]</strong> — это тоже строка типа str.</p>
+            <p>Номера символов в строке (а также в других структурах данных: списках, кортежах) называются индексом.</p>
+            <p>Если указать отрицательное значение индекса, то номер будет отсчитываться с конца, начиная с номера -1. То есть <strong>S[-1] == 'o', S[-2] == 'l', S[-3] == 'l', S[-4] == 'e', S[-5] == 'H'</strong>.</p>
+            <p>Или в виде таблицы:</p>
+            <table border="2px" class="table">
+                <tr>
+                    <td>Строка S</td>
+                    <td>H</td>
+                    <td>E</td>
+                    <td>L</td>
+                    <td>L</td>
+                    <td>O</td>
+                </tr>
+                <tr>
+                    <td>Индекс</td>
+                    <td>S[0]</td>
+                    <td>S[1]</td>
+                    <td>S[2]</td>
+                    <td>S[3]</td>
+                    <td>S[4]</td>
+
+                </tr>
+                <tr>
+                    <td>Индекс</td>
+                    <td>S[-5]</td>
+                    <td>S[-4]</td>
+                    <td>S[-3]</td>
+                    <td>S[-2]</td>
+                    <td>S[-1]</td>
+
+                </tr>
+            </table>
+            <P>Если же номер символа в срезе строки <strong>S</strong> больше либо равен <strong>len(S)</strong>, или меньше, чем <strong>-len(S)</strong>, то при обращении к этому символу строки произойдет ошибка <strong>IndexError: string index out of range</strong>.</P>
+            <p>Срез с двумя параметрами: <strong>S[a:b]</strong> возвращает подстроку из b - a символов, начиная с символа c индексом a, то есть до символа с индексом b, не включая его. Например, <strong>S[1:4] == 'ell'</strong>
+                 то же самое получится если написать <strong>S[-4:-1]</strong>. Можно использовать как положительные, так и отрицательные индексы в одном срезе,
+                 например, <strong>S[1:-1]</strong> — это строка без первого и последнего символа (срез начинается с символа с индексом 1 и заканчиватеся индексом -1, не включая его).</p>
+            <p>При использовании такой формы среза ошибки <strong>IndexError</strong> никогда не возникает. Например, срез <strong>S[1:5]</strong> вернет строку <strong>'ello'</strong>,
+                 таким же будет результат, если сделать второй индекс очень большим, например, <strong>S[1:100]</strong> (если в строке не более 100 символов).</p>
+            <p>Если опустить второй параметр (но поставить двоеточие), то срез берется до конца строки. Например, чтобы удалить из строки первый символ (его индекс равен 0), можно взять срез <strong>S[1:]</strong>.
+                 Аналогично если опустить первый параметр, то можно взять срез от начала строки.
+                 То есть удалить из строки последний символ можно при помощи среза <strong>S[:-1]</strong>. Срез <strong>S[:]</strong> совпадает с самой строкой <strong>S</strong>.</p>
+            <p class="border-text">Любые операции среза со строкой создают новые строки и никогда не меняют исходную строку. В Питоне строки вообще являются неизменяемыми, их невозможно изменить. Можно лишь в старую переменную присвоить новую строку.
+                 На самом деле в питоне нет и переменных. Есть лишь имена, которые связаны с какими-нибудь объектами. Можно сначала связать имя с одним объектом, а потом — с другим. Можно несколько имён связать с одним и тем же объектом.</p>
+            <p>Если задать срез с тремя параметрами <strong>S[a:b:d]</strong>, то третий параметр задает шаг, как в случае с функцией <strong>range</strong>, то есть будут взяты символы с индексами <strong>a, a + d, a + 2 * d и т. д</strong>. При задании значения третьего параметра, равному 2, в срез попадет кажый второй символ,
+                 а если взять значение среза, равное -1, то символы будут идти в обратном порядке. Например, можно перевернуть строку срезом <strong>S[::-1]</strong>.</p>
+            <img src="{{ url_for('static', filename= '/img/lesson5/les5_2.png') }}" alt="" width="650px">
+            <p>Обратите внимание на то, как похож третий параметр среза на третий параметр функции <strong>range()</strong>:</p>
+            <img src="{{ url_for('static', filename= '/img/lesson5/les5_3.png') }}" alt="" width="650px">
+            <h3>3. Методы</h3>
+            <p>Метод — это функция, применяемая к объекту, в данном случае — к строке. Метод вызывается в виде <strong>Имя_объекта.Имя_метода(параметры)</strong>. Например, <strong>S.find("e")</strong> — это применение к строке <strong>S</strong> метода <strong>find</strong> с одним параметром "e".</p>
+            <h3>3.1. Методы find и rfind</h3>
+            <p>Метод <strong>find</strong> находит в данной строке (к которой применяется метод) данную подстроку (которая передается в качестве параметра). Функция возвращает индекс первого вхождения искомой подстроки. Если же подстрока не найдена, то метод возвращает значение -1.</p>
+            <img src="{{ url_for('static', filename= '/img/lesson5/les5_4.png') }}" alt="" width="650px">
+            <p>Аналогично, метод <strong>rfind</strong> возвращает индекс последнего вхождения данной строки (“поиск справа”).</p>
+            <img src="{{ url_for('static', filename= '/img/lesson5/les5_5.png') }}" alt="" width="650px">
+            <p>Если вызвать метод <strong>find</strong> с тремя параметрами <strong>S.find(T, a, b)</strong>, то поиск будет осуществляться в срезе <strong>S[a:b]</strong>. Если указать только два параметра <strong>S.find(T, a)</strong>, то поиск будет осуществляться в срезе <strong>S[a:]</strong>, то есть начиная с символа с индексом a и до конца строки. Метод <strong>S.find(T, a, b)</strong> возращает индекс в строке S, а не индекс относительно среза.</p>
+            <h3>3.2. Метод replace</h3>
+            <p>Метод <strong>replace</strong> заменяет все вхождения одной строки на другую. Формат: <strong>S.replace(old, new)</strong> — заменить в строке S все вхождения подстроки <strong>old</strong> на подстроку new. Пример:</p>
+            <img src="{{ url_for('static', filename= '/img/lesson5/les5_6.png') }}" alt="" width="650px">
+            <p>Если методу <strong>replace</strong> задать еще один параметр: <strong>S.replace(old, new, count)</strong>, то заменены будут не все вхождения, а только не больше, чем первые <strong>count</strong> из них.</p>
+            <img src="{{ url_for('static', filename= '/img/lesson5/les5_7.png') }}" alt="" width="650px">
+            <h3>3.3. Метод count</h3>
+            <p>Подсчитывает количество вхождений одной строки в другую строку. Простейшая форма вызова <strong>S.count(T)</strong>  возвращает число вхождений строки T внутри строки S. При этом подсчитываются только непересекающиеся вхождения, например:</p>
+            <img src="{{ url_for('static', filename= '/img/lesson5/les5_8.png') }}" alt="" width="650px">
+            <p>При указании трех параметров <strong>S.count(T, a, b)</strong>, будет выполнен подсчет числа вхождений строки T в срезе <strong>S[a:b]</strong>.</p>
+            <h2>Задание:</h2>
+            <p>Дана строка "hello world", состоящая из слов, разделенных пробелами. Определите, сколько в ней слов. Используйте для решения задачи метод <strong>count</strong>.</p>
+            <iframe height="400px" width="100%" src="https://replit.com/@Director123/PrestigiousPapayawhipRedundancy?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+            <p>Здесь вы можете потренироваться в написании кода:</p>
+        </div>
+    </section>
+    <footer class="header">
+        <div class="container">
+            <ul class="nav justify-content-center color-text-footer">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('index') }}">Главная</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('lessons') }}">Уроки</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('instrument') }}">Инструментарий</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('autor') }}">Об авторе</a>
+            </ul>
+            <p class="fotter-text">© 2020-2021. Все права защищены</p>
+        </div>
+    </footer>
+</body>
+</html>

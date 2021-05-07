@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
+</head>
+<body>
+    <header class="header">
+        <div class="container text-center" >
+            <img src="{{ url_for('static', filename= '/img/plogo.png') }}" alt="" width="180px"class="rounded" >
+            <h1 class="logo">EasyPython</h1>
+            <ul class="nav justify-content-center color-link">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('index') }}">Главная</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('lessons') }}">Уроки</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('instrument') }}">Инструментарий</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('autor') }}">Об авторе</a>
+            </ul>
+        </div>
+    </header>
+    <section>
+        <div class="container main-text clearfix">
+            <h2>Об авторе:</h2>
+            <img src="{{ url_for('static', filename= '/img/fotoobavtore.jpg') }}" alt="" width="300px" class="foto" >
+            <div class="author-div">
+                <h3 class="infobavtore">Киреев Данил Дмитриевич</h3>
+                <p class="infobavtore">14 лет, начинающий веб-разработчик.</p>
+                <p class="infobavtore">Город:Сыктывкар</p>
+                <p class="infobavtore">Владею следующими технологиями:</p>
+                <p class="infobavtore">Python,HTML,CSS</p>
+            </div>
+        </div>
+    </section>
+    <footer class="header">
+        <div class="container text-center">
+            <ul class="nav justify-content-center color-text-footer">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('index') }}">Главная</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('lessons') }}">Уроки</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('instrument') }}">Инструментарий</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('autor') }}">Об авторе</a>
+            </ul>
+            <p class="fotter-text">© 2020-2021. Все права защищены</p>
+        </div>
+    </footer>
+</body>
+</html>

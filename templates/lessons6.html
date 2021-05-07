@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
+</head>
+<body>
+    <header class="header">
+        <div class="container text-center" >
+            <img src="{{ url_for('static', filename= '/img/plogo.png') }}" alt="" width="180px"class="rounded" >
+            <h1 class="logo">EasyPython</h1>
+            <ul class="nav justify-content-center color-link">
+                <li class="nav-item">
+                   <a class="nav-link" href="{{ url_for('index') }}">Главная</a>
+                <li class="nav-item">
+                   <a class="nav-link" href="{{ url_for('lessons') }}">Уроки</a>
+                <li class="nav-item">
+                   <a class="nav-link" href="{{ url_for('instrument') }}">Инструментарий</a>
+                <li class="nav-item">
+                   <a class="nav-link" href="{{ url_for('autor') }}">Об авторе</a>
+            </ul>
+        </div>
+    </header>
+    <section>
+        <div class="container main-text">
+            <h2>Урок 6: Цикл while</h2>
+            <h3>1. Цикл while</h3>
+            <p>Цикл <strong>while (“пока”)</strong> позволяет выполнить одну и ту же последовательность действий, пока проверяемое условие истинно. 
+                Условие записывается до тела цикла и проверяется до выполнения тела цикла. Как правило, цикл <strong>while</strong> используется,
+                 когда невозможно определить точное значение количества проходов исполнения цикла.</p>
+            <p>Синтаксис цикла <strong>while</strong> в простейшем случае выглядит так:</p>
+            <img src="{{ url_for('static', filename= '/img/lesson6/les6_1.png') }}" alt="" width="650px">
+            <p>При выполнении цикла <strong>while</strong> сначала проверяется условие. Если оно ложно, то выполнение цикла прекращается и управление передается на следующую инструкцию после тела цикла <strong>while</strong>. Если условие истинно, 
+                то выполняется инструкция, после чего условие проверяется снова и снова выполняется инструкция. Так продолжается до тех пор, пока условие будет истинно. Как только условие станет ложно,
+                 работа цикла завершится и управление передастся следующей инструкции после цикла.</p>
+            <p>Например, следующий фрагмент программы напечатает на экран квадраты всех целых чисел от 1 до 10. Видно, что цикл <strong>while</strong> может заменять цикл <strong>for ... in range(...)</strong>:</p>
+            <img src="{{ url_for('static', filename= '/img/lesson6/les6_2.png') }}" alt="" width="650px">
+            <p>В этом примере переменная <strong>i</strong> внутри цикла изменяется от 1 до 10. Такая переменная, значение которой меняется с каждым новым проходом цикла,
+                 называется счетчиком. Заметим, что после выполнения этого фрагмента значение переменной <strong>i</strong> будет равно 11, 
+                 поскольку именно при <strong>i == 11</strong> условие <strong>i <= 10</strong> впервые перестанет выполняться.</p>
+            <p>Вот еще один пример использования цикла <strong>while</strong> для определения количества цифр натурального числа n:</p>
+            <img src="{{ url_for('static', filename= '/img/lesson6/les6_3.png') }}" alt="" width="650px">
+            <p>В этом цикле мы отбрасываем по одной цифре числа, начиная с конца, что эквивалентно целочисленному делению на <strong>10 (n //= 10)</strong>, при этом считаем в переменной <strong>length</strong>, сколько раз это было сделано.</p>
+            <p>В языке Питон есть и другой способ решения этой задачи: <strong>length = len(str(i))</strong>.</p>
+            <h3>2. Инструкции управления циклом</h3>
+            <p>После тела цикла можно написать слово <strong>else</strong>: и после него блок операций, который будет выполнен один раз после окончания цикла,
+                 когда проверяемое условие станет неверно:</p>
+            <img src="{{ url_for('static', filename= '/img/lesson6/les6_4.png') }}" alt="" width="650px">
+            <p>Казалось бы, никакого смысла в этом нет, ведь эту же инструкцию можно просто написать после окончания цикла. Смысл появляется только вместе с инструкцией <strong>break</strong>. Если во время выполнения Питон встречает инструкцию break внутри цикла,
+                 то он сразу же прекращает выполнение этого цикла и выходит из него. При этом ветка <strong>else</strong> исполняться не будет. Разумеется, инструкцию <strong>break</strong> осмыленно вызывать только внутри инструкции <strong>if</strong>,
+                 то есть она должна выполняться только при выполнении какого-то особенного условия.</p>
+            <p>Приведем пример программы, которая считывает числа до тех пор, пока не встретит отрицательное число. При появлении отрицательного числа программа завершается. В первом варианте последовательность чисел завершается числом 0 (при считывании которого надо остановиться).</p>
+            <img src="{{ url_for('static', filename= '/img/lesson6/les6_5.png') }}" alt="" width="650px">
+            <p>Во втором варианте программы сначала на вход подается количество элементов последовательности, а затем и сами элементы. В таком случае удобно воспользоваться циклом <strong>for</strong>. Цикл <strong>for</strong> также может иметь ветку <strong>else</strong> и содержать инструкции <strong>break</strong> внутри себя. </p>
+            <img src="{{ url_for('static', filename= '/img/lesson6/les6_6.png') }}" alt="" width="650px">
+            <p>Другая инструкция управления циклом — <strong>continue</strong> (продолжение цикла). Если эта инструкция встречается где-то посередине цикла, то пропускаются все оставшиеся инструкции до конца цикла, и исполнение цикла продолжается со следующей итерации.</p>
+            <p class="border-text">Если инструкции <strong>break</strong> и <strong>continue</strong> содержатся внутри нескольких вложенных циклов, то они влияют лишь на исполнение самого внутреннего цикла. Вот не самый интеллектуальный пример, который это демонстрирует:</p>
+            <img src="{{ url_for('static', filename= '/img/lesson6/les6_7.png') }}" alt="" width="650px">
+            <p>Увлечение инструкциями <strong>break</strong> и <strong>continue</strong> не поощряется, если можно обойтись без их использования. Вот типичный пример плохого использования инструкции <strong>break</strong> (данный код считает количество знаков в числе).</p>
+            <img src="{{ url_for('static', filename= '/img/lesson6/les6_8.png') }}" alt="" width="650px">
+            <p>Гораздо лучше переписать этот цикл так:</p>
+            <img src="{{ url_for('static', filename= '/img/lesson6/les6_9.png') }}" alt="" width="650px">
+            <p>Впрочем, на Питоне можно предложить и более изящное решение:</p>
+            <img src="{{ url_for('static', filename= '/img/lesson6/les6_10.png') }}" alt="" width="650px">
+            <h3>3. Множественное присваивание</h3>
+            <p>В Питоне можно за одну инструкцию присваивания изменять значение сразу нескольких переменных. Делается это так:</p>
+            <img src="{{ url_for('static', filename= '/img/lesson6/les6_11.png') }}" alt="" width="650px">
+            <p>Этот код можно записать и так:</p>
+            <img src="{{ url_for('static', filename= '/img/lesson6/les6_12.png') }}" alt="" width="650px">
+            <p>Отличие двух способов состоит в том, что множественное присваивание в первом способе меняет значение двух переменных одновременно.</p>
+            <p>Если слева от знака «=» в множественном присваивании должны стоять через запятую имена переменных, то справа могут стоять произвольные выражения, разделённые запятыми. Главное, чтобы слева и справа от знака присваивания было одинаковое число элементов.</p>
+            <p>Множественное присваивание удобно использовать, когда нужно обменять значения двух переменных. В обычных языках программирования без использования специальных функций это делается так:</p>
+            <img src="{{ url_for('static', filename= '/img/lesson6/les6_13.png') }}" alt="" width="650px">
+            <p>В Питоне то же действие записывается в одну строчку:</p>
+            <img src="{{ url_for('static', filename= '/img/lesson6/les6_14.png') }}" alt="" width="650px">
+            <h2>Задание:</h2>
+            <p>Условие</p>
+            <p>По данному целому числу N распечатайте все квадраты натуральных чисел, не превосходящие N, в порядке возрастания.</p>
+            <p>N = 50</p>
+            <iframe height="400px" width="100%" src="https://replit.com/@Director123/LooseFreshExpertise?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+            <p>Здесь вы можете потренироваться в написании кода:</p>
+        </div>
+    </section>
+    <footer class="header">
+        <div class="container">
+            <ul class="nav justify-content-center color-text-footer">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('index') }}">Главная</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('lessons') }}">Уроки</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('instrument') }}">Инструментарий</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('autor') }}">Об авторе</a>
+            </ul>
+            <p class="fotter-text">© 2020-2021. Все права защищены</p>
+        </div>
+    </footer>
+</body>
+</html>

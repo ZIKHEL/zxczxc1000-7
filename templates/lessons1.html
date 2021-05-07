@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
+</head>
+<body>
+    <header class="header">
+        <div class="container text-center" >
+            <img src="{{ url_for('static', filename= '/img/plogo.png') }}" alt="" width="180px"class="rounded" >
+            <h1 class="logo">EasyPython</h1>
+            <ul class="nav justify-content-center color-link">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('index') }}">Главная</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('lessons') }}">Уроки</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('instrument') }}">Инструментарий</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('autor') }}">Об авторе</a>
+            </ul>
+        </div>
+    </header>
+    <section>
+        <div class="container main-text">
+            <h2>Урок 1 ввод и вывод данных:</h2>
+            <p>Для печати значений в Питоне есть функция <strong>print()</strong>. Внутри круглых скобок через запятую мы пишем то,
+                 что хотим вывести.
+                 Вот программа, которая делает несколько вычислений:</p>
+            <img src="{{ url_for('static', filename= '/img/lesson1/123456.png') }}" alt="" class="lesson1-code" width="650px">
+            <p>Для ввода данных в программу мы используем функцию input(). Она считывает одну строку.
+
+                Вот программа, которая считывает имя пользователя и приветствует его:</p>
+            <img src="{{ url_for('static', filename= '/img/lesson1/221.png') }}" alt="" width="650px" class="lesson1-code">
+            <p>При в вводе своего имени в консоль, например, "Вася", то отобразиться "Здравствуйте Вася!"</p>
+            <p>Мы будем писать программы, которые считывают данные, перерабатывают их и выводят какой-то результат. При запуске на компьютере такие программы считывают данные, которые пользователь вводит с клавиатуры, а результат выводят на экран.
+
+                Попробуем написать программу, которая считывает два числа и выводит их сумму. 
+                Для этого считаем два числа и сохраним их в переменные a и b, пользуясь оператором присваивания =.
+                 Слева от оператора присваивания в программах на Питоне ставится имя переменной — например, 
+                 строка из латинских букв. Справа от оператора присваивания ставится любое выражение. 
+                 Имя станет указывать на результат вычисления выражения.</p>
+            <img src="{{ url_for('static', filename= '/img/lesson1/666.png') }}" alt="" width="650px" class="lesson1-code">
+            <p>Если мы введем любые числа, например, 5, 6 ,то при включении программы мы не увидим 11 мы 
+                увидим 56, так как переменные a и b являются строками и строка "a" присоединяется к строке "b".</p>
+                <p>Каждый объект относится к какому-то типу. Строки хранятся в объектах типа str,
+                 целые числа хранятся в объектах типа int, дробные числа (вещественные числа) — в объектах типа float. 
+                 Тип объекта определяет, какие действия можно делать с объектами этого типа. Например,
+                  если в переменных first и second лежат объекты типа int, то их можно перемножить,
+                 а если в них лежат объекты типа str, то их перемножить нельзя:</p>
+            <p>Чтобы преобразовать строку из цифр в целое число, воспользуемся функцией int(). Например, int('23') вернет число 23.
+
+                Вот пример правильной программы, которая считывает два числа и выводит их сумму:</p>
+            <img src="{{ url_for('static', filename= '/img/lesson1/777.png') }}" alt="" width="650px" class="lesson1-code">
+            <h2>Задание:</h2>
+            <p>Напишите программу, которая считывает три числа и выводит их сумму:</p>
+            <iframe height="400px" width="700px" src="https://replit.com/@Director123/PlumpTartProgrammingtool?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+            <p>В этой программе можно потренироваться в написании кода и проверить вышеперечисленные примеры кода.</p>
+                
+        </div>
+    </section>
+    <footer class="header">
+        <div class="container">
+            <ul class="nav justify-content-center color-text-footer">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('index') }}">Главная</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('lessons') }}">Уроки</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('instrument') }}">Инструментарий</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('autor') }}">Об авторе</a>
+            </ul>
+            <p class="fotter-text">© 2020-2021. Все права защищены</p>
+        </div>
+    </footer>
+</body>
+</html>

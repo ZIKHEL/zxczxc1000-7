@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
+</head>
+<body>
+    <header class="header">
+        <div class="container text-center" >
+            <img src="{{ url_for('static', filename= '/img/plogo.png') }}" alt="" width="180px"class="rounded" >
+            <h1 class="logo">EasyPython</h1>
+            <ul class="nav justify-content-center color-link">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('index') }}">Главная</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('lessons') }}">Уроки</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('instrument') }}">Инструментарий</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('autor') }}">Об авторе</a>
+            </ul>
+        </div>
+    </header>
+    <section>
+        <div class="container lessons-all main-text2 text-center">
+            <h2>Список уроков:</h2>
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('lessons1') }}">Урок 1: Ввод и вывод данных</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{{ url_for('lessons2') }}">Урок 2: Условия</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{{ url_for('lessons3') }}">Урок 3: Вычисления</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('lessons4') }}">Урок 4: Цикл for</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('lessons5') }}">Урок 5: Строки</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('lessons6') }}">Урок 6: Цикл while</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('lessons7') }}">Урок 7: Списки</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('lessons8') }}">Урок 8: Функции и рекурсия</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('lessons9') }}">Урок 9: Двумерные массивы</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('lessons10') }}">Урок 10: Множества</a>
+                </li>
+              </ul>
+        </div>
+    </section>
+    <footer class="header">
+        <div class="container text-center">
+            <ul class="nav justify-content-center color-text-footer">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('index') }}">Главная</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('lessons') }}">Уроки</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('instrument') }}">Инструментарий</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('autor') }}">Об авторе</a>
+            </ul>
+            <p class="fotter-text">© 2020-2021. Все права защищены</p>
+        </div>
+    </footer>
+</body>
+</html>

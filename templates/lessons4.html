@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
+</head>
+<body>
+    <header class="header">
+        <div class="container text-center" >
+            <img src="{{ url_for('static', filename= '/img/plogo.png') }}" alt="" width="180px"class="rounded" >
+            <h1 class="logo">EasyPython</h1>
+            <ul class="nav justify-content-center color-link">
+                <li class="nav-item">
+                   <a class="nav-link" href="{{ url_for('index') }}">Главная</a>
+                <li class="nav-item">
+                   <a class="nav-link" href="{{ url_for('lessons') }}">Уроки</a>
+                <li class="nav-item">
+                   <a class="nav-link" href="{{ url_for('instrument') }}">Инструментарий</a>
+                <li class="nav-item">
+                   <a class="nav-link" href="{{ url_for('autor') }}">Об авторе</a>
+            </ul>
+        </div>
+    </header>
+    <section>
+        <div class="container main-text">
+            <h2>Урок 4: Цикл for</h2>
+            <h3>1. Цикл for</h3>
+            <p>Цикл <strong>for</strong>, также называемый циклом с параметром, в языке Питон богат возможностями. В цикле <strong>for</strong> указывается переменная и множество значений, по которому будет пробегать переменная. 
+             Множество значений может быть задано списком, кортежем, строкой или диапазоном.</p>
+            <p>Вот простейший пример использования цикла, где в качестве множества значений используется кортеж:</p>
+            <img src="{{ url_for('static', filename= '/img/lesson4/les4_1.png') }}" alt="" width="650px">
+            <p>В этом примере переменная <strong>color</strong> последовательно принимает значения 'red', 'orange' и т.д. В теле цикла выводится сообщение, которое содержит название цвета,
+                 то есть значение переменной <strong>color</strong>,
+                 а также номер итерации цикла  число, которое сначала равно 1, 
+                 а потом увеличивается на один (инструкцией <strong>i += 1</strong> с каждым проходом цикла.</p>
+            <p>Инструкция <strong>i += 1</strong> эквивалентна конструкции <strong>i = i + 1</strong> (это просто сокращенная запись). Такую сокращенную запись можно использовать для всех арифметических операций: <strong>*=, -=, /=, %=...</strong></p>
+            <p>В списке значений могут быть выражения различных типов, например:</p>
+            <img src="{{ url_for('static', filename= '/img/lesson4/les4_2.png') }}" alt="" width="650px">
+            <p>При первых трех итерациях цикла переменная <strong>i</strong> будет принимать значение типа <strong>int</strong>, при последующих трех — типа <strong>str</strong>.</p>
+            <h3>2. Функция range</h3>
+            <p>Как правило, циклы <strong>for</strong> используются либо для повторения какой-либо последовательности действий заданное число раз,
+                 либо для изменения значения переменной в цикле от некоторого начального значения до некоторого конечного.</p>
+            <p>Для повторения цикла некоторое заданное число раз <strong>n</strong> можно использовать цикл <strong>for</strong> вместе с функцией <strong>range</strong>:</p>
+            <img src="{{ url_for('static', filename= '/img/lesson4/les4_3.png') }}" alt="" width="650px">
+            <p>В качестве <strong>n</strong> может использоваться числовая константа, переменная или произвольное арифметическое выражение (например, 2 ** 10). Если значение <strong>n</strong> равно нулю или отрицательное,
+                 то тело цикла не выполнится ни разу.</p>
+            <p>Функция range может также принимать не один, а два параметра. Вызов <strong>range(a, b)</strong> означает, что индексная переменная будеть принимать значения от <strong>a</strong> до <strong>b - 1</strong>, то есть первый параметр функции <strong>range</strong>, вызываемой с двумя параметрами, задает начальное значение индексной переменной, 
+                а второй параметр — первое значение, которое индексная переменная принимать <strong>не будет</strong>. Если же <strong>a ≥ b</strong>, то цикл не будет выполнен ни разу. Например, для того,
+                чтобы просуммировать значения чисел от 1 до <strong>n</strong> можно воспользоваться следующей программой:</p>
+            <img src="{{ url_for('static', filename= '/img/lesson4/les4_4.png') }}" alt="" width="650px">
+            <p>В этом примере переменная <strong>i</strong> принимает значения 1, 2, ..., <strong>n</strong>, и значение переменной sum последовательно увеличивается на указанные значения.</p>                     
+            <p>Наконец, чтобы организовать цикл, в котором индексная переменная будет уменьшаться, необходимо использовать функцию <strong>range</strong> с тремя параметрами. Первый параметр задает начальное значение индексной переменной, второй параметр — значение, до которого будет изменяться индексная переменная <strong>(не включая его!)</strong>,
+                 а третий параметр — величину изменения индексной переменной. Например,
+                 сделать цикл по всем нечетным числам от 1 до 99 можно при помощи функции <strong>range(1, 100, 2)</strong>, а сделать цикл по всем числам от 100 до 1 можно при помощи <strong>range(100, 0, -1)</strong>.</p>
+            <p>Более формально, цикл <strong>for i in range(a, b, d)</strong> при <strong>d > 0</strong> задает значения индексной переменной <strong>i = a, i = a + d, i = a + 2 * d</strong> и так для всех значений, для которых <strong>i < b</strong>. Если же <strong>d < 0</strong>, то переменная цикла принимает все значения <strong>i > b</strong>.</p>
+            <h3>3. Настройка функции print() </h3>    
+            <p>По умолчанию функция <strong>print()</strong> принимает несколько аргументов, выводит их через пробел, после чего ставит перевод строки. Это поведение можно изменить,
+                 используя именованные параметры<strong> sep (разделитель)</strong> и <strong>end (окончание)</strong>.</p>
+            <img src="{{ url_for('static', filename= '/img/lesson4/les4_5.png') }}" alt="" width="650px">
+            <h2>Задание:</h2>
+            <p>Условие</p>
+            <p>Даны два целых числа A и В, A>B. Выведите все нечётные числа от A до B включительно, в порядке убывания. В этой задаче можно обойтись без инструкции if.</p>
+            <iframe height="400px" width="100%" src="https://replit.com/@Director123/HotpinkInformalCircle?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+            <p>В этой программе можно потренироваться в написании кода и проверить вышеперечисленные примеры кода.</p>
+        </div>
+    </section>
+    <footer class="header">
+        <div class="container">
+            <ul class="nav justify-content-center color-text-footer">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('index') }}">Главная</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('lessons') }}">Уроки</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('instrument') }}">Инструментарий</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('autor') }}">Об авторе</a>
+            </ul>
+            <p class="fotter-text">© 2020-2021. Все права защищены</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
+
+</head>
+<body>
+<header class="header">
+    <div class="container text-center">
+        <img src="{{ url_for('static', filename= '/img/plogo.png') }}" alt="" width="180px" class="rounded">
+        <h1 class="logo">EasyPython</h1>
+        <ul class="nav justify-content-center color-link">
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('index') }}">Главная</a>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('lessons') }}">Уроки</a>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('instrument') }}">Инструментарий</a>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('autor') }}">Об авторе</a>
+        </ul>
+    </div>
+</header>
+<section>
+    <div class="container main-text">
+        <h2>Что такое Python?</h2>
+        <p>
+            <strong>Python</strong> — самый быстрорастущий язык программирования за последние несколько лет.
+        </p>
+        <p>Он лёгок для понимания и отлично подходит для новичков,почти любой человек поймет Python</p>
+        <p>Язык программирования Python позволяет создавать различные типы программ, например:</p>
+        <ul>
+            <li>двухмерные и трехмерные игры;</li>
+            <li>финансовые и научные приложения;</li>
+            <li>облачные приложения;</li>
+            <li>мобильные приложения.</li>
+            <li>бизнес-приложения для сбора, анализа и обработки данных;</li>
+            <li>динамические веб-приложения, к которым можно получить доступ в веб-браузере;</li>
+        </ul>
+        <p>По сравнению с другими языками программирования Python является относительно простым, но очень
+            функциональным. </p>
+        <p>Это сочетание, вероятно, способствовало его огромной популярности.</p>
+        <p>Помимо самого языка программирования Python предоставляет множество библиотек, которые могут сократить
+            сложные задачи до нескольких строк кода.</p>
+        <strong>Преимущества и недостатки Python:</strong>
+        <ul>
+            <li>Python - интерпретируемый язык программирования. С одной стороны, это позволяет значительно упростить
+                отладку программ,
+                с другой - обуславливает сравнительно низкую скорость выполнения.
+            </li>
+            <li>Динамическая типизация. В python не надо заранее объявлять тип переменной,
+                что очень удобно при разработке.
+            </li>
+            <li>Хорошая поддержка модульности.
+                Вы можете легко написать свой модуль и использовать его в других программах.
+            </li>
+            <li>Встроенная поддержка Unicode в строках. В Python необязательно писать всё на английском языке,
+                в программах вполне может использоваться ваш родной язык.
+            </li>
+            <li>Поддержка объектно-ориентированного программирования.
+                При этом его реализация в python является одной из самых понятных.
+            </li>
+            <li>Автоматическая сборка мусора, отсутствие утечек памяти.</li>
+            <li>Интеграция с C/C++, если возможностей python недостаточно.</li>
+            <li>Понятный и лаконичный синтаксис, способствующий ясному отображению кода.
+                Удобная система функций позволяет при грамотном подходе создавать код,
+                в котором будет легко разобраться другому человеку в случае необходимости.
+                Также вы сможете научиться читать программы и модули, написанные другими людьми.
+            </li>
+            <li>Огромное количество модулей,
+                как входящих в стандартную поставку Python 3,
+                так и сторонних. В некоторых случаях для написания программы достаточно лишь найти подходящие модули и
+                правильно их скомбинировать.
+                Таким образом, вы можете думать о составлении программы на более высоком уровне,
+                работая с уже готовыми элементами, выполняющими различные действия.
+            </li>
+            <li>Кроссплатформенность. Программа, написанная на Python,
+                будет функционировать совершенно одинаково вне зависимости от того,
+                в какой операционной системе она запущена. Отличия возникают лишь в редких случаях,
+                и их легко заранее предусмотреть благодаря наличию подробной документации.
+            </li>
+        </ul>
+        <iframe width="716" height="403" src="https://www.youtube.com/embed/kXfOWLLN9k4" title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+    </div>
+</section>
+<footer class="header">
+    <div class="container text-center">
+        <ul class="nav justify-content-center color-text-footer">
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('index') }}">Главная</a>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('lessons') }}">Уроки</a>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('instrument') }}">Инструментарий</a>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('autor') }}">Об авторе</a>
+        </ul>
+        <p class="fotter-text">© 2020-2021. Все права защищены</p>
+    </div>
+</footer>
+</body>
+</html>
